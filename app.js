@@ -39,3 +39,19 @@ function actualizaLista (){
     }
 }
 
+//Función para sortear amigo.
+function sortearAmigo () {
+    //Validar que haya amigos disponibles para sortear.
+    if (amigos.length === 0) {
+        document.querySelector('#resultado').innerHTML = 'Por favor, ingresa un par de nombres para iniciar el sorteo.';
+        return;
+    }
+
+    //Generar amigo aleatorio
+    let amigoAleatorio = Math.floor(Math.random() * amigos.length);
+    let suertudo = amigos[amigoAleatorio];
+
+    //Muestra el resultado.
+    document.querySelector('#resultado').innerHTML = `El suertudo escogido es: ¡${suertudo}!`;
+
+}
