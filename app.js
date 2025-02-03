@@ -7,12 +7,35 @@ function agregarAmigo () {
     let nuevoAmigo = document.querySelector('#amigo');
     let nombre = nuevoAmigo.value.trim()
 
+    //Valida que el campo no esté vacío.
     if (nombre === '') {
         document.getElementById('amigo').placeholder = 'Por favor, ingrese un nombre válido';
         return;
     }
-
+    //Acgtualiza la lista agregando los nuevos nombres.
     amigos.push(nombre);
+
+    //Limpia el campo de entrada despues de ingresar los nombres.
     nuevoAmigo.value = ''; 
     document.getElementById('amigo').placeholder = 'Escribe un nombre';
+
+    actualizaLista();
 }
+
+//Función que actualiza la lista de amigos que se muestra.
+function actualizaLista (){
+    //Selecciona la lista donde se muestran los amigos.
+    let lista = document.getElementById('listaAmigos');
+
+    //Limpia la lista existente para evitar que hayan duplicados.
+    lista.innerHTML = '';
+
+    //Recorre el arreglo y crea los elementos de la lista.
+    for(let i = 0; i < amigos.length; i++) {
+        let elemLi = document.createElement('li');
+        elemLi.textContent = amigos[i];
+        //Agrega un elemento lista por cada amigo.
+        lista.appendChild(elemLi);
+    }
+}
+
