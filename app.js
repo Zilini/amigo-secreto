@@ -20,6 +20,9 @@ function agregarAmigo () {
     document.getElementById('amigo').placeholder = 'Escribe un nombre';
 
     actualizaLista();
+
+    //Hace que el cursor se mantenga en input después de ingresar el nombre.
+    nuevoAmigo.focus();
 }
 
 //Función que actualiza la lista de amigos que se muestra.
