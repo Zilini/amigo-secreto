@@ -2,6 +2,13 @@
 //Lista de amigos.
 let amigos = [];
 
+//Permite que al usar la tecla enter ingrese el nombre a la lista.
+document.getElementById("amigo").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        agregarAmigo();
+    }
+});
+
 //Función para agragar amigos a la lista.
 function agregarAmigo () {
     let nuevoAmigo = document.querySelector('#amigo');
@@ -11,15 +18,22 @@ function agregarAmigo () {
     if (nombre === '') {
         document.getElementById('amigo').placeholder = 'Por favor, ingrese un nombre válido';
         return;
+    } else {
+        if(!amigos.includes(nombre)) {
+            //Acgtualiza la lista agregando los nuevos nombres.
+            amigos.push(nombre);
+
+            //Limpia el campo de entrada despues de ingresar los nombres.
+            nuevoAmigo.value = ''; 
+            document.getElementById('amigo').placeholder = 'Escribe un nombre';
+
+            actualizaLista();
+        } else {
+            //Valida si un nombre ya ha sido ingresado antes.
+            alert('El nombre ya fue ingresado.');
+            nuevoAmigo.value = '';
+        }
     }
-    //Acgtualiza la lista agregando los nuevos nombres.
-    amigos.push(nombre);
-
-    //Limpia el campo de entrada despues de ingresar los nombres.
-    nuevoAmigo.value = ''; 
-    document.getElementById('amigo').placeholder = 'Escribe un nombre';
-
-    actualizaLista();
 
     //Hace que el cursor se mantenga en input después de ingresar el nombre.
     nuevoAmigo.focus();
@@ -46,7 +60,7 @@ function actualizaLista (){
 function sortearAmigo () {
     //Validar que haya amigos disponibles para sortear.
     if (amigos.length === 0) {
-        document.querySelector('#resultado').innerHTML = 'Por favor, ingresa un par de nombres para iniciar el sorteo.';
+        alert('Por favor, ingresa al menos dos nombres para iniciar el sorteo.');
         return;
     }
 
