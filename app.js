@@ -16,7 +16,7 @@ function agregarAmigo () {
 
     //Valida que el campo no esté vacío.
     if (nombre === '') {
-        document.getElementById('amigo').placeholder = 'Por favor, ingrese un nombre válido';
+        document.getElementById('amigo').placeholder = 'El campo está vacío, por favor ingresa un nombre válido';
         return;
     } else {
         if(!amigos.includes(nombre)) {
@@ -30,7 +30,7 @@ function agregarAmigo () {
             actualizaLista();
         } else {
             //Valida si un nombre ya ha sido ingresado antes.
-            alert('El nombre ya fue ingresado.');
+            alert('El nombre ya existe. Ingresa otro nombre');
             nuevoAmigo.value = '';
         }
     }
