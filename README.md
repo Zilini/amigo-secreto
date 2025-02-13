@@ -31,6 +31,3 @@ Es un juego en el que tendrás que ingresar varios nombres a trevés de un campo
 
 Para acceder al repositorio ingresa al siguiente enlace: 
     https://github.com/Zilini/amigo-secreto
-
-## 🛠️ Abrir y ejecutar el proyecto
-
